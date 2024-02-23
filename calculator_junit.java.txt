@@ -1,0 +1,46 @@
+import Calculator;
+import org.junit.Test; 
+import org.junit.Assert; 
+import org.junit.Before;
+
+public class CalculatorTest {
+private Calculator obj;
+
+
+@Test
+public void testAddBlank() { 
+String s=""; 
+int expectedResult = 0;
+int result = Calculator.sum(s);
+Assert.assertEquals(expectedResult, result);
+}
+
+@Test
+public void testAdd() { 
+String s="1,2,3"; 
+int expectedResult = 6;
+int result = Calculator.sum(s);
+Assert.assertEquals(expectedResult, result);
+}
+
+@Test
+public void testAddSpaceDelimit() { 
+String s="1,\n2,3"; 
+int expectedResult = 6;
+int result = Calculator.sum(s);
+Assert.assertEquals(expectedResult, result);
+}
+
+
+
+@Test
+public void testAddNegativeNumber() { 
+String s="1,-2,3"; 
+Exception expectedResult = new Exception("Negative numbers not allowed");
+int result = Calculator.sum(s);
+Assert.assertEquals(expectedResult, result);
+}
+
+
+
+}
